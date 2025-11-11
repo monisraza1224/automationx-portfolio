@@ -87,5 +87,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.disabled = false;
             }, 5000);
         });
+    // Package selection for contact form
+function selectPackage(packageName) {
+    // Store the selected package
+    sessionStorage.setItem('selectedPackage', packageName);
+    
+    // Scroll to contact form
+    document.getElementById('contact').scrollIntoView({
+        behavior: 'smooth'
+    });
+    
+    // Update form after a short delay
+    setTimeout(() => {
+        const messageTextarea = document.getElementById('message');
+        if (messageTextarea) {
+            const selectedPackage = sessionStorage.getItem('selectedPackage');
+            messageTextarea.value = `I'm interested in the ${selectedPackage} package. Please contact me with more details.`;
+        }
+    }, 1000);
+}
+
+// Pre-fill package info on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const selectedPackage = sessionStorage.getItem('selectedPackage');
+    if (selectedPackage) {
+        const messageTextarea = document.getElementById('message');
+        if (messageTextarea) {
+            messageTextarea.value = `I'm interested in the ${selectedPackage} package. Please contact me with more details.`;
+        }
+        sessionStorage.removeItem('selectedPackage');
     }
 });
+
