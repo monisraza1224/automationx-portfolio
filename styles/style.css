@@ -12,6 +12,45 @@ body {
     background: #ffffff;
 }
 
+/* Enhanced Logo Styling */
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.logo h2 {
+    color: #2563eb;
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -0.5px;
+}
+
+.logo-subtitle {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Footer Logo Styling */
+.footer-brand h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-brand p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
@@ -1152,6 +1191,16 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2rem;
     }
+
+    @media (max-width: 768px) {
+    .logo h2 {
+        font-size: 1.4rem;
+    }
+    
+    .logo-subtitle {
+        font-size: 0.7rem;
+    }
+}
     
     .about-content {
         grid-template-columns: 1fr 350px;
