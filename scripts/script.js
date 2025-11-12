@@ -227,4 +227,37 @@ window.addEventListener('click', function(event) {
     if (event.target === modal) {
         closeReviewForm();
     }
+// Simple fix for reviews display
+function showAllReviews() {
+    const reviewsList = document.getElementById('reviews-list');
+    const reviews = JSON.parse(localStorage.getItem('automationxReviews')) || [];
+    
+    if (reviews.length === 0) {
+        reviewsList.innerHTML = '<p>No reviews yet</p>';
+        return;
+    }
+    
+    let html = '';
+    reviews.forEach(review => {
+        html += `
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-info">
+                    <h4>${review.name}</h4>
+                    <p>${review.company}</p>
+                </div>
+                <div class="star-rating">
+                    ${'★'.repeat(review.rating)}
+                </div>
+            </div>
+            <p class="review-text">"${review.review}"</p>
+        </div>
+        `;
+    });
+    
+    reviewsList.innerHTML = html;
+}
+
+// Show reviews when page loads
+document.addEventListener('DOMContentLoaded', showAllReviews);
 });
