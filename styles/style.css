@@ -262,57 +262,49 @@ body {
     gap: 2.5rem;
 }
 
-/* Reviews Section */
-.reviews {
-    padding: 100px 0;
-    background: #f8fafc;
+/* Real Review Request */
+.review-request {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
 }
 
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+.review-box {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.review-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    border: 1px solid #f1f5f9;
-    transition: transform 0.3s ease;
-}
-
-.review-card:hover {
-    transform: translateY(-5px);
-}
-
-.review-stars {
-    color: #fbbf24;
+.review-box h3 {
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.review-text {
-    color: #475569;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-style: italic;
+.review-box p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
 }
 
-.review-author {
-    border-top: 1px solid #f1f5f9;
-    padding-top: 1rem;
+.review-platforms {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
-.review-author strong {
-    color: #1e293b;
-    display: block;
-    margin-bottom: 0.3rem;
+.platform {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
 }
 
-.review-author span {
-    color: #64748b;
-    font-size: 0.9rem;
+.platform i {
+    font-size: 1.5rem;
 }
 
 /* Services Section Styling */
