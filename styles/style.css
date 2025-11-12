@@ -262,6 +262,59 @@ body {
     gap: 2.5rem;
 }
 
+/* Reviews Section */
+.reviews {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.review-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border: 1px solid #f1f5f9;
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-stars {
+    color: #fbbf24;
+    margin-bottom: 1rem;
+}
+
+.review-text {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.review-author {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+}
+
+.review-author strong {
+    color: #1e293b;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.review-author span {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
 /* Services Section Styling */
 .service-card {
     background: white;
