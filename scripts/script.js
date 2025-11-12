@@ -118,4 +118,102 @@ document.addEventListener('DOMContentLoaded', function() {
         sessionStorage.removeItem('selectedPackage');
     }
 });
+// Review System
+let currentRating = 0;
 
+function setRating(rating) {
+    currentRating = rating;
+    const stars = document.querySelectorAll('.star-rating .star');
+    stars.forEach((star, index) => {
+        if (index < rating) {
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
+        }
+    });
+}
+
+function openReviewForm() {
+    document.getElementById('reviewModal').style.display = 'block';
+}
+
+function closeReviewForm() {
+    document.getElementById('reviewModal').style.display = 'none';
+    // Reset form
+    document.getElementById('reviewForm').reset();
+    currentRating = 0;
+    const stars = document.querySelectorAll('.star-rating .star');
+    stars.forEach(star => star.classList.remove('active'));
+}
+
+// Handle form submission
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('reviewerName').value;
+    const company = document.getElementById('reviewerCompany').value;
+    const review = document.getElementById('reviewText').value;
+    
+    if (currentRating === 0) {
+        alert('Please select a rating');
+        return;
+    }
+    
+    // Save review to localStorage
+    const newReview = {
+        name: name,
+        company: company,
+        rating: currentRating,
+        review: review,
+        date: new Date().toLocaleDateString()
+    };
+    
+    saveReview(newReview);
+    displayReviews();
+    closeReviewForm();
+    alert('Thank you for your review!');
+});
+
+// Save review to localStorage
+function saveReview(review) {
+    let reviews = JSON.parse(localStorage.getItem('automationxReviews')) || [];
+    reviews.unshift(review); // Add to beginning
+    localStorage.setItem('automationxReviews', JSON.stringify(reviews));
+}
+
+// Display reviews
+function displayReviews() {
+    const reviewsList = document.getElementById('reviews-list');
+    const reviews = JSON.parse(localStorage.getItem('automationxReviews')) || [];
+    
+    if (reviews.length === 0) {
+        reviewsList.innerHTML = `
+            <div class="review-card">
+                <p style="text-align: center; color: #64748b;">
+                    No reviews yet. Be the first to share your experience!
+                </p>
+            </div>
+        `;
+        return;
+    }
+    
+    reviewsList.innerHTML = reviews.map(review => `
+        <div class="review-card">
+            <div class="review-header">
+                <div class="reviewer-info">
+                    <h4>${review.name}</h4>
+                    <p>${review.company} • ${review.date}</p>
+                </div>
+                <div class="star-rating">
+                    ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+                </div>
+            </div>
+            <p class="review-text">"${review.review}"</p>
+        </div>
+    `).join('');
+}
+
+// Load reviews when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    displayReviews();
+});
