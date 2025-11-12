@@ -205,3 +205,26 @@ function displayReviews() {
         </div>
     `).join('');
 }
+function openReviewForm() {
+    console.log('Opening review form');
+    document.getElementById('reviewModal').style.display = 'block';
+    document.body.classList.add('modal-open'); // Prevent background scroll
+}
+
+function closeReviewForm() {
+    document.getElementById('reviewModal').style.display = 'none';
+    document.body.classList.remove('modal-open'); // Re-enable background scroll
+    // Reset form
+    document.getElementById('reviewForm').reset();
+    currentRating = 0;
+    const stars = document.querySelectorAll('.star-rating .star');
+    stars.forEach(star => star.classList.remove('active'));
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('reviewModal');
+    if (event.target === modal) {
+        closeReviewForm();
+    }
+});
