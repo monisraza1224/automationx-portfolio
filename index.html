@@ -686,60 +686,61 @@
             </div>
         </div>
     </section>
-    <!-- Real Client Reviews -->
-    <section id="reviews" class="reviews">
-        <div class="container">
-            <h2 class="section-title">Client Reviews</h2>
-            <p class="section-subtitle">Real feedback from businesses I've helped</p>
+    
+   <!-- Real Client Reviews -->
+<section id="reviews" class="reviews">
+    <div class="container">
+        <h2 class="section-title">Client Reviews</h2>
+        <p class="section-subtitle">Real feedback from businesses I've helped</p>
+        
+        <div class="reviews-container">
+            <!-- Reviews will be added here automatically -->
+            <div id="reviews-list">
+                <!-- Reviews load here -->
+            </div>
             
-            <div class="reviews-container">
-                <!-- Reviews will be added here automatically -->
-                <div id="reviews-list">
-                    <!-- Reviews load here -->
-                </div>
-                
-                <!-- Add Review Button -->
-                <div class="add-review-section">
-                    <h3>Share Your Experience</h3>
-                    <p>Worked with me? Leave your honest review below.</p>
-                    <button class="btn primary" onclick="openReviewForm()">Add Your Review</button>
-                </div>
+            <!-- Add Review Button -->
+            <div class="add-review-section">
+                <h3>Share Your Experience</h3>
+                <p>Worked with me? Leave your honest review below.</p>
+                <button class="btn primary" onclick="openReviewForm()">Add Your Review</button>
             </div>
         </div>
-    </section>
-
-    <!-- Review Form Modal -->
-    <div id="reviewModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeReviewForm()">&times;</span>
-            <h3>Add Your Review</h3>
-            <form id="reviewForm">
-                <div class="form-group">
-                    <label>Your Name</label>
-                    <input type="text" id="reviewerName" required>
-                </div>
-                <div class="form-group">
-                    <label>Your Company</label>
-                    <input type="text" id="reviewerCompany">
-                </div>
-                <div class="form-group">
-                    <label>Rating</label>
-                    <div class="star-rating">
-                        <span class="star" onclick="setRating(1)">★</span>
-                        <span class="star" onclick="setRating(2)">★</span>
-                        <span class="star" onclick="setRating(3)">★</span>
-                        <span class="star" onclick="setRating(4)">★</span>
-                        <span class="star" onclick="setRating(5)">★</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Your Review</label>
-                    <textarea id="reviewText" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn primary">Submit Review</button>
-            </form>
-        </div>
     </div>
+</section>
+
+<!-- Review Form Modal -->
+<div id="reviewModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeReviewForm()">&times;</span>
+        <h3>Add Your Review</h3>
+        <form id="reviewForm">
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" id="reviewerName" required>
+            </div>
+            <div class="form-group">
+                <label>Your Company</label>
+                <input type="text" id="reviewerCompany">
+            </div>
+            <div class="form-group">
+                <label>Rating</label>
+                <div class="star-rating">
+                    <span class="star" onclick="setRating(1)">★</span>
+                    <span class="star" onclick="setRating(2)">★</span>
+                    <span class="star" onclick="setRating(3)">★</span>
+                    <span class="star" onclick="setRating(4)">★</span>
+                    <span class="star" onclick="setRating(5)">★</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Your Review</label>
+                <textarea id="reviewText" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn primary">Submit Review</button>
+        </form>
+    </div>
+</div>
     
     
     <!-- Contact Section -->
