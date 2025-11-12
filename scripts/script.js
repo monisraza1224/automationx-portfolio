@@ -61,33 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form success message (for Formspree)
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.querySelector('.contact-form');
-    
-    if (contactForm) {
-        // Check if form was submitted successfully (Formspree redirects to thank you page)
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('success') === 'true') {
-            alert('Thank you for your message! I will get back to you soon.');
-        }
-        
-        // Optional: Add form validation feedback
-        contactForm.addEventListener('submit', function(e) {
-            const submitBtn = this.querySelector('.form-btn');
-            const originalHTML = submitBtn.innerHTML;
-            
-            // Show loading state
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-            
-            // Re-enable button after 5 seconds in case form doesn't submit
-            setTimeout(() => {
-                submitBtn.innerHTML = originalHTML;
-                submitBtn.disabled = false;
-            }, 5000);
-        });
-    // Package selection for contact form
+// Package selection for contact form
 function selectPackage(packageName) {
     // Store the selected package
     sessionStorage.setItem('selectedPackage', packageName);
@@ -118,7 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
         sessionStorage.removeItem('selectedPackage');
     }
 });
-// Review System
+
+// REVIEW SYSTEM CODE
 let currentRating = 0;
 
 function setRating(rating) {
@@ -134,6 +109,7 @@ function setRating(rating) {
 }
 
 function openReviewForm() {
+    console.log('Opening review form'); // Debug line
     document.getElementById('reviewModal').style.display = 'block';
 }
 
@@ -146,32 +122,47 @@ function closeReviewForm() {
     stars.forEach(star => star.classList.remove('active'));
 }
 
-// Handle form submission
-document.getElementById('reviewForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+// Initialize review system when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize reviews
+    displayReviews();
     
-    const name = document.getElementById('reviewerName').value;
-    const company = document.getElementById('reviewerCompany').value;
-    const review = document.getElementById('reviewText').value;
-    
-    if (currentRating === 0) {
-        alert('Please select a rating');
-        return;
+    // Add event listener to review form
+    const reviewForm = document.getElementById('reviewForm');
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('reviewerName').value;
+            const company = document.getElementById('reviewerCompany').value;
+            const review = document.getElementById('reviewText').value;
+            
+            if (currentRating === 0) {
+                alert('Please select a rating');
+                return;
+            }
+            
+            // Save review to localStorage
+            const newReview = {
+                name: name,
+                company: company,
+                rating: currentRating,
+                review: review,
+                date: new Date().toLocaleDateString()
+            };
+            
+            saveReview(newReview);
+            displayReviews();
+            closeReviewForm();
+            alert('Thank you for your review!');
+        });
     }
     
-    // Save review to localStorage
-    const newReview = {
-        name: name,
-        company: company,
-        rating: currentRating,
-        review: review,
-        date: new Date().toLocaleDateString()
-    };
-    
-    saveReview(newReview);
-    displayReviews();
-    closeReviewForm();
-    alert('Thank you for your review!');
+    // Add click listeners to stars
+    const stars = document.querySelectorAll('.star-rating .star');
+    stars.forEach((star, index) => {
+        star.addEventListener('click', () => setRating(index + 1));
+    });
 });
 
 // Save review to localStorage
@@ -184,6 +175,8 @@ function saveReview(review) {
 // Display reviews
 function displayReviews() {
     const reviewsList = document.getElementById('reviews-list');
+    if (!reviewsList) return;
+    
     const reviews = JSON.parse(localStorage.getItem('automationxReviews')) || [];
     
     if (reviews.length === 0) {
@@ -212,8 +205,3 @@ function displayReviews() {
         </div>
     `).join('');
 }
-
-// Load reviews when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    displayReviews();
-});
