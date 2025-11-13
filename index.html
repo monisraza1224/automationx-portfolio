@@ -686,8 +686,7 @@
             </div>
         </div>
     </section>
-    
-   <!-- Real Client Reviews -->
+ <!-- Real Client Reviews -->
 <section id="reviews" class="reviews">
     <div class="container">
         <h2 class="section-title">Client Reviews</h2>
@@ -699,8 +698,20 @@
                 <!-- Reviews load here -->
             </div>
             
-    
-<!-- Review Form Modal -->
+            <!-- Add Review Button Section -->
+            <div class="add-review-section">
+                <h3>Share Your Experience</h3>
+                <button class="btn primary" onclick="openReviewForm()">Add Your Review</button>
+                <br>
+                <button class="btn secondary" onclick="showAllReviews()" style="margin-top: 10px;">
+                    Refresh Reviews
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Review Form Modal - PUT THIS RIGHT AFTER THE REVIEWS SECTION -->
 <div id="reviewModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeReviewForm()">&times;</span>
@@ -731,16 +742,9 @@
             <button type="submit" class="btn primary">Submit Review</button>
         </form>
     </div>
-</div>
-    <div class="add-review-section">
-    <h3>Share Your Experience</h3>
-    <button class="btn primary" onclick="openReviewForm()">Add Your Review</button>
-    <br>
-    <button class="btn secondary" onclick="showAllReviews()" style="margin-top: 10px;">
-        Refresh Reviews
-    </button>
-</div>
-    
+</div>   
+            
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
