@@ -18,12 +18,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Package selection
-function selectPackage(packageName) {
-    sessionStorage.setItem('selectedPackage', packageName);
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-}
-
 // Review System
 let currentRating = 0;
 
@@ -31,7 +25,11 @@ function setRating(rating) {
     currentRating = rating;
     const stars = document.querySelectorAll('.star-rating .star');
     stars.forEach((star, index) => {
-        star.classList.toggle('active', index < rating);
+        if (index < rating) {
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
+        }
     });
 }
 
@@ -48,7 +46,7 @@ function closeReviewForm() {
     });
 }
 
-// Save and display reviews
+// Save and show reviews
 function saveReview(review) {
     let reviews = JSON.parse(localStorage.getItem('automationxReviews')) || [];
     reviews.unshift(review);
@@ -86,7 +84,7 @@ function showAllReviews() {
     reviewsList.innerHTML = html;
 }
 
-// Form submission
+// Handle form submission
 document.getElementById('reviewForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -119,17 +117,5 @@ window.addEventListener('click', function(event) {
     }
 });
 
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    showAllReviews();
-    
-    // Pre-fill package if selected
-    const selectedPackage = sessionStorage.getItem('selectedPackage');
-    if (selectedPackage) {
-        const messageTextarea = document.getElementById('message');
-        if (messageTextarea) {
-            messageTextarea.value = `I'm interested in the ${selectedPackage} package.`;
-        }
-        sessionStorage.removeItem('selectedPackage');
-    }
-});
+// Show reviews when page loads
+document.addEventListener('DOMContentLoaded', showAllReviews);
