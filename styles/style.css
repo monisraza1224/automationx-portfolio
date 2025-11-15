@@ -1569,12 +1569,20 @@ body.modal-open {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
 .logo-image {
-    height: 40px;
+    height: 50px;
     width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
 }
 
 .logo-text {
@@ -1586,46 +1594,46 @@ body.modal-open {
 .logo-text h2 {
     color: #2563eb;
     font-weight: 800;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin: 0;
     line-height: 1;
     letter-spacing: -0.5px;
 }
 
 .logo-subtitle {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #64748b;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-top: 2px;
+    margin-top: 3px;
 }
 
 /* Mobile responsive */
 @media (max-width: 768px) {
     .logo-image {
-        height: 35px;
+        height: 45px;
     }
     
     .logo-text h2 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
     
     .logo-subtitle {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 }
 
 @media (max-width: 480px) {
     .logo-image {
-        height: 30px;
+        height: 40px;
     }
     
     .logo-text h2 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     
     .logo-subtitle {
-        display: none; /* Hide subtitle on very small screens */
+        display: none;
     }
 }
