@@ -1573,10 +1573,10 @@ body.modal-open {
 }
 
 .logo-image {
-    height: 50px;
+    height: 100px;
     width: auto;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    border-radius: 8px;
+    border-radius: 16px;
     transition: all 0.3s ease;
 }
 
@@ -1605,14 +1605,14 @@ body.modal-open {
     color: #64748b;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     margin-top: 3px;
 }
 
 /* Mobile responsive */
 @media (max-width: 768px) {
     .logo-image {
-        height: 45px;
+        height: 80px;
     }
     
     .logo-text h2 {
@@ -1626,11 +1626,11 @@ body.modal-open {
 
 @media (max-width: 480px) {
     .logo-image {
-        height: 40px;
+        height: 80px;
     }
     
     .logo-text h2 {
-        font-size: 1.3rem;
+        font-size: 2rem;
     }
     
     .logo-subtitle {
