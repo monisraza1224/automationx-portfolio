@@ -12,6 +12,19 @@ body {
     background: #ffffff;
 }
 
+/* Color Variables - Parrot Green Theme */
+:root {
+    --primary-color: #50C878;      /* Parrot Green */
+    --primary-dark: #3DAF6C;       /* Darker Parrot Green */
+    --primary-light: #7DDF9C;      /* Lighter Parrot Green */
+    --primary-gradient: linear-gradient(135deg, #50C878 0%, #3DAF6C 100%);
+    --secondary-color: #2C5530;    /* Dark Green for accents */
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --background-light: #f8fafc;
+    --white: #ffffff;
+}
+
 /* Enhanced Logo Styling */
 .logo {
     display: flex;
@@ -21,7 +34,7 @@ body {
 }
 
 .logo h2 {
-    color: #2563eb;
+    color: var(--primary-color);
     font-weight: 800;
     font-size: 1.6rem;
     margin: 0;
@@ -31,7 +44,7 @@ body {
 
 .logo-subtitle {
     font-size: 0.75rem;
-    color: #64748b;
+    color: var(--text-light);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -39,7 +52,7 @@ body {
 
 /* Footer Logo Styling */
 .footer-brand h3 {
-    color: white;
+    color: var(--white);
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
     font-weight: 700;
@@ -60,7 +73,7 @@ body {
 
 /* Navigation */
 #navbar {
-    background: #fff;
+    background: var(--white);
     box-shadow: 0 2px 20px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
@@ -84,7 +97,7 @@ body {
 }
 
 .logo h2 {
-    color: #2563eb;
+    color: var(--primary-color);
     font-weight: 700;
     font-size: 1.5rem;
     margin: 0;
@@ -93,7 +106,7 @@ body {
 
 .logo-subtitle {
     font-size: 0.8rem;
-    color: #64748b;
+    color: var(--text-light);
     font-weight: 500;
     margin-top: 2px;
 }
@@ -106,14 +119,14 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #334155;
+    color: var(--text-dark);
     font-weight: 500;
     transition: all 0.3s ease;
     font-size: 1rem;
 }
 
 .nav-links a:hover {
-    color: #2563eb;
+    color: var(--primary-color);
     transform: translateY(-1px);
 }
 
@@ -127,7 +140,7 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: #334155;
+    background: var(--text-dark);
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
@@ -136,12 +149,12 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: var(--white);
     padding-top: 80px;
     position: relative;
     overflow: hidden;
@@ -199,15 +212,15 @@ body {
 }
 
 .btn.primary {
-    background: #ffffff;
-    color: #667eea;
+    background: var(--white);
+    color: var(--primary-color);
     box-shadow: 0 4px 15px rgba(255,255,255,0.3);
 }
 
 .btn.secondary {
     background: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+    color: var(--white);
+    border: 2px solid var(--white);
     backdrop-filter: blur(10px);
 }
 
@@ -229,7 +242,7 @@ body {
 /* Reviews Section */
 .reviews {
     padding: 100px 0;
-    background: #f8fafc;
+    background: var(--background-light);
 }
 
 .reviews-container {
@@ -242,7 +255,7 @@ body {
 }
 
 .review-card {
-    background: white;
+    background: var(--white);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
@@ -259,12 +272,12 @@ body {
 
 .reviewer-info h4 {
     margin: 0;
-    color: #1e293b;
+    color: var(--text-dark);
 }
 
 .reviewer-info p {
     margin: 0;
-    color: #64748b;
+    color: var(--text-light);
     font-size: 0.9rem;
 }
 
@@ -285,7 +298,7 @@ body {
 .add-review-section {
     text-align: center;
     padding: 2rem;
-    background: white;
+    background: var(--white);
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
@@ -304,7 +317,7 @@ body {
 }
 
 .modal-content {
-    background-color: white;
+    background-color: var(--white);
     margin: 5% auto;
     padding: 2rem;
     border-radius: 12px;
@@ -353,7 +366,7 @@ body.modal-open {
     text-align: center;
     font-size: 2.8rem;
     margin-bottom: 4rem;
-    color: #1e293b;
+    color: var(--text-dark);
     padding-top: 100px;
     font-weight: 700;
     position: relative;
@@ -367,14 +380,14 @@ body.modal-open {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     border-radius: 2px;
 }
 
 /* Services Section */
 .services {
     padding: 120px 0;
-    background: #f8fafc;
+    background: var(--background-light);
     position: relative;
 }
 
@@ -386,7 +399,7 @@ body.modal-open {
 
 /* Services Section Styling */
 .service-card {
-    background: white;
+    background: var(--white);
     padding: 2.5rem 2rem;
     border-radius: 16px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
@@ -404,7 +417,7 @@ body.modal-open {
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -423,31 +436,31 @@ body.modal-open {
     width: 90px;
     height: 90px;
     margin: 0 auto 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--white);
     font-size: 2.2rem;
     transition: all 0.4s ease;
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 8px 20px rgba(80, 200, 120, 0.3);
 }
 
 .service-card:hover .service-icon {
     transform: scale(1.15) rotate(5deg);
-    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 12px 30px rgba(80, 200, 120, 0.4);
 }
 
 .service-card h3 {
-    color: #1e293b;
+    color: var(--text-dark);
     margin-bottom: 1.2rem;
     font-size: 1.5rem;
     font-weight: 700;
 }
 
 .service-card p {
-    color: #64748b;
+    color: var(--text-light);
     margin-bottom: 2rem;
     line-height: 1.7;
     font-size: 1.05rem;
@@ -475,7 +488,7 @@ body.modal-open {
 
 .service-features li:before {
     content: "✓";
-    color: #10b981;
+    color: var(--primary-color);
     font-weight: bold;
     position: absolute;
     left: 0;
@@ -494,15 +507,15 @@ body.modal-open {
 .service-price {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #059669;
+    color: var(--primary-color);
     margin-bottom: 2rem;
     font-family: 'Inter', sans-serif;
     letter-spacing: -0.5px;
 }
 
 .service-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--primary-gradient);
+    color: var(--white);
     width: 100%;
     border: none;
     padding: 16px;
@@ -515,15 +528,15 @@ body.modal-open {
 }
 
 .service-btn:hover {
-    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #2C5530 100%);
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 10px 25px rgba(80, 200, 120, 0.4);
 }
 
 /* Portfolio Section */
 .portfolio {
     padding: 120px 0;
-    background: #ffffff;
+    background: var(--white);
 }
 
 .portfolio-grid {
@@ -533,7 +546,7 @@ body.modal-open {
 }
 
 .portfolio-card {
-    background: white;
+    background: var(--white);
     border-radius: 16px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     overflow: hidden;
@@ -548,7 +561,7 @@ body.modal-open {
 
 .portfolio-image {
     height: 220px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -558,7 +571,7 @@ body.modal-open {
 
 .image-placeholder {
     text-align: center;
-    color: white;
+    color: var(--white);
     z-index: 2;
 }
 
@@ -580,7 +593,7 @@ body.modal-open {
 }
 
 .portfolio-content h3 {
-    color: #1e293b;
+    color: var(--text-dark);
     font-size: 1.4rem;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -588,7 +601,7 @@ body.modal-open {
 }
 
 .portfolio-content p {
-    color: #64748b;
+    color: var(--text-light);
     line-height: 1.7;
     margin-bottom: 1.5rem;
     font-size: 1rem;
@@ -622,9 +635,9 @@ body.modal-open {
     gap: 1.5rem;
     margin-bottom: 2rem;
     padding: 1.2rem;
-    background: #f8fafc;
+    background: var(--background-light);
     border-radius: 10px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--primary-color);
 }
 
 .result-item {
@@ -637,13 +650,13 @@ body.modal-open {
 }
 
 .result-item i {
-    color: #667eea;
+    color: var(--primary-color);
     font-size: 1rem;
 }
 
 .portfolio-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--primary-gradient);
+    color: var(--white);
     width: 100%;
     border: none;
     padding: 14px;
@@ -656,15 +669,15 @@ body.modal-open {
 }
 
 .portfolio-btn:hover {
-    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #2C5530 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 20px rgba(80, 200, 120, 0.4);
 }
 
 /* NEW: Past Projects Section */
 .past-projects {
     padding: 100px 0;
-    background: #f8fafc;
+    background: var(--background-light);
 }
 
 .past-projects-grid {
@@ -679,7 +692,7 @@ body.modal-open {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    background: white;
+    background: var(--white);
 }
 
 .project-screenshot:hover {
@@ -710,7 +723,7 @@ body.modal-open {
     left: 0;
     right: 0;
     background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
+    color: var(--white);
     padding: 2rem 1.5rem 1.5rem;
     transform: translateY(100%);
     transition: transform 0.3s ease;
@@ -755,14 +768,14 @@ body.modal-open {
     width: 95%;
     max-height: 90vh;
     overflow-y: auto;
-    background: white;
+    background: var(--white);
     border-radius: 20px;
     padding: 0;
 }
 
 .project-modal-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--primary-gradient);
+    color: var(--white);
     padding: 2.5rem;
     border-radius: 20px 20px 0 0;
     position: relative;
@@ -800,13 +813,13 @@ body.modal-open {
 
 .project-overview h3 {
     font-size: 1.4rem;
-    color: #1e293b;
+    color: var(--text-dark);
     margin-bottom: 1rem;
     font-weight: 600;
 }
 
 .project-overview p {
-    color: #64748b;
+    color: var(--text-light);
     line-height: 1.7;
     font-size: 1.05rem;
 }
@@ -819,21 +832,21 @@ body.modal-open {
 }
 
 .project-feature {
-    background: #f8fafc;
+    background: var(--background-light);
     padding: 1.5rem;
     border-radius: 12px;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--primary-color);
 }
 
 .project-feature h4 {
-    color: #1e293b;
+    color: var(--text-dark);
     font-size: 1.1rem;
     margin-bottom: 0.8rem;
     font-weight: 600;
 }
 
 .project-feature p {
-    color: #64748b;
+    color: var(--text-light);
     font-size: 0.95rem;
     line-height: 1.5;
 }
@@ -844,7 +857,7 @@ body.modal-open {
 
 .project-tech-stack h3 {
     font-size: 1.4rem;
-    color: #1e293b;
+    color: var(--text-dark);
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -856,8 +869,8 @@ body.modal-open {
 }
 
 .tech-stack-item {
-    background: #e0e7ff;
-    color: #3730a3;
+    background: #e0f2e9;
+    color: #166534;
     padding: 0.6rem 1.2rem;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -865,8 +878,8 @@ body.modal-open {
 }
 
 .project-results {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--primary-gradient);
+    color: var(--white);
     padding: 2rem;
     border-radius: 12px;
     margin-bottom: 2.5rem;
@@ -908,7 +921,7 @@ body.modal-open {
 /* About Section */
 .about {
     padding: 120px 0;
-    background: #f8fafc;
+    background: var(--background-light);
 }
 
 .about-content {
@@ -920,14 +933,14 @@ body.modal-open {
 
 .about-header h3 {
     font-size: 2.2rem;
-    color: #1e293b;
+    color: var(--text-dark);
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .tagline {
     font-size: 1.3rem;
-    color: #667eea;
+    color: var(--primary-color);
     font-weight: 600;
     margin-bottom: 2rem;
     line-height: 1.5;
@@ -946,7 +959,7 @@ body.modal-open {
 
 .expertise-areas h4 {
     font-size: 1.4rem;
-    color: #1e293b;
+    color: var(--text-dark);
     margin-bottom: 1.5rem;
     font-weight: 600;
 }
@@ -962,7 +975,7 @@ body.modal-open {
     align-items: flex-start;
     gap: 1rem;
     padding: 1.2rem;
-    background: white;
+    background: var(--white);
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.06);
     border: 1px solid #f1f5f9;
@@ -976,20 +989,20 @@ body.modal-open {
 
 .expertise-item i {
     font-size: 1.5rem;
-    color: #667eea;
+    color: var(--primary-color);
     margin-top: 0.2rem;
     flex-shrink: 0;
 }
 
 .expertise-item h5 {
-    color: #1e293b;
+    color: var(--text-dark);
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
 .expertise-item p {
-    color: #64748b;
+    color: var(--text-light);
     font-size: 0.95rem;
     line-height: 1.5;
     margin: 0;
@@ -1001,9 +1014,9 @@ body.modal-open {
     gap: 1.5rem;
     margin: 3rem 0;
     padding: 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     border-radius: 16px;
-    color: white;
+    color: var(--white);
 }
 
 .stat-item {
@@ -1041,7 +1054,7 @@ body.modal-open {
 }
 
 .image-container {
-    background: white;
+    background: var(--white);
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
@@ -1067,13 +1080,13 @@ body.modal-open {
 
 .profile-fallback {
     padding: 2rem;
-    color: #64748b;
+    color: var(--text-light);
     text-align: center;
 }
 
 .profile-fallback i {
     font-size: 4rem;
-    color: #667eea;
+    color: var(--primary-color);
     margin-bottom: 1rem;
     display: block;
 }
@@ -1083,7 +1096,7 @@ body.modal-open {
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: #1e293b;
+    color: var(--text-dark);
 }
 
 .profile-fallback p {
@@ -1092,7 +1105,7 @@ body.modal-open {
 }
 
 .credentials {
-    background: white;
+    background: var(--white);
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
@@ -1112,7 +1125,7 @@ body.modal-open {
 }
 
 .credential-item i {
-    color: #667eea;
+    color: var(--primary-color);
     font-size: 1.2rem;
     width: 20px;
 }
@@ -1133,14 +1146,14 @@ body.modal-open {
 
 .contact-info h3 {
     font-size: 2rem;
-    color: #1e293b;
+    color: var(--text-dark);
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .contact-subtitle {
     font-size: 1.2rem;
-    color: #64748b;
+    color: var(--text-light);
     margin-bottom: 2.5rem;
     line-height: 1.6;
 }
@@ -1164,36 +1177,36 @@ body.modal-open {
 .contact-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--white);
     font-size: 1.2rem;
     flex-shrink: 0;
 }
 
 .contact-item h4 {
-    color: #1e293b;
+    color: var(--text-dark);
     font-size: 1.1rem;
     margin-bottom: 0.3rem;
     font-weight: 600;
 }
 
 .contact-item p, .contact-item a {
-    color: #64748b;
+    color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .contact-item a:hover {
-    color: #667eea;
+    color: var(--primary-color);
 }
 
 .expertise-highlights h4 {
     font-size: 1.3rem;
-    color: #1e293b;
+    color: var(--text-dark);
     margin-bottom: 1.5rem;
     font-weight: 600;
 }
@@ -1209,7 +1222,7 @@ body.modal-open {
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background: white;
+    background: var(--white);
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.06);
     border: 1px solid #f1f5f9;
@@ -1222,7 +1235,7 @@ body.modal-open {
 }
 
 .highlight-item i {
-    color: #667eea;
+    color: var(--primary-color);
     font-size: 1.3rem;
     width: 20px;
 }
@@ -1235,7 +1248,7 @@ body.modal-open {
 
 /* Contact Form Styling */
 .contact-form-container {
-    background: white;
+    background: var(--white);
     border-radius: 16px;
     padding: 2.5rem;
     box-shadow: 0 10px 35px rgba(0,0,0,0.08);
@@ -1251,13 +1264,13 @@ body.modal-open {
 
 .form-header h4 {
     font-size: 1.5rem;
-    color: #1e293b;
+    color: var(--text-dark);
     margin-bottom: 0.5rem;
     font-weight: 700;
 }
 
 .form-header p {
-    color: #64748b;
+    color: var(--text-light);
     font-size: 1rem;
 }
 
@@ -1282,7 +1295,7 @@ body.modal-open {
     border-radius: 8px;
     font-size: 1rem;
     transition: all 0.3s ease;
-    background: white;
+    background: var(--white);
     font-family: inherit;
 }
 
@@ -1290,8 +1303,8 @@ body.modal-open {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(80, 200, 120, 0.1);
 }
 
 .form-group textarea {
@@ -1300,8 +1313,8 @@ body.modal-open {
 }
 
 .form-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--primary-gradient);
+    color: var(--white);
     width: 100%;
     border: none;
     padding: 16px;
@@ -1317,15 +1330,15 @@ body.modal-open {
 }
 
 .form-btn:hover {
-    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #2C5530 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 25px rgba(80, 200, 120, 0.4);
 }
 
 /* Footer Styling */
 .footer {
     background: #1e293b;
-    color: white;
+    color: var(--white);
     padding: 3rem 0 1.5rem;
     margin-top: 4rem;
 }
@@ -1340,7 +1353,7 @@ body.modal-open {
 }
 
 .footer-brand h3 {
-    color: white;
+    color: var(--white);
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
 }
@@ -1366,7 +1379,7 @@ body.modal-open {
 }
 
 .footer-link:hover {
-    color: #667eea;
+    color: var(--primary-color);
 }
 
 .footer-bottom {
@@ -1380,8 +1393,8 @@ body.modal-open {
 /* Service Packages Section */
 .packages {
     padding: 120px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--primary-gradient);
+    color: var(--white);
     position: relative;
 }
 
@@ -1397,13 +1410,13 @@ body.modal-open {
 }
 
 .packages .section-title {
-    color: white;
+    color: var(--white);
     position: relative;
     z-index: 2;
 }
 
 .packages .section-title::after {
-    background: white;
+    background: var(--white);
 }
 
 .section-subtitle {
@@ -1427,7 +1440,7 @@ body.modal-open {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     padding: 2.5rem;
-    color: #1e293b;
+    color: var(--text-dark);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     transition: all 0.4s ease;
     position: relative;
@@ -1456,7 +1469,7 @@ body.modal-open {
     left: 50%;
     transform: translateX(-50%);
     background: #fbbf24;
-    color: #1e293b;
+    color: var(--text-dark);
     padding: 8px 20px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -1475,7 +1488,7 @@ body.modal-open {
 .package-header h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #1e293b;
+    color: var(--text-dark);
     font-weight: 700;
 }
 
@@ -1489,13 +1502,13 @@ body.modal-open {
 .price {
     font-size: 3rem;
     font-weight: 800;
-    color: #059669;
+    color: var(--primary-color);
     line-height: 1;
 }
 
 .period {
     font-size: 1rem;
-    color: #64748b;
+    color: var(--text-light);
     font-weight: 500;
 }
 
@@ -1516,7 +1529,7 @@ body.modal-open {
 }
 
 .feature-item i {
-    color: #059669;
+    color: var(--primary-color);
     font-size: 1.1rem;
     width: 20px;
 }
@@ -1532,8 +1545,8 @@ body.modal-open {
 }
 
 .package-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--primary-gradient);
+    color: var(--white);
     width: 100%;
     border: none;
     padding: 16px;
@@ -1546,9 +1559,9 @@ body.modal-open {
 }
 
 .package-btn:hover {
-    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #2C5530 100%);
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 10px 25px rgba(80, 200, 120, 0.4);
 } 
 
 /* Logo Styling */
@@ -1578,7 +1591,7 @@ body.modal-open {
 }
 
 .logo-text h2 {
-    color: #2563eb;
+    color: var(--primary-color);
     font-weight: 800;
     font-size: 1.8rem;
     margin: 0;
@@ -1588,7 +1601,7 @@ body.modal-open {
 
 .logo-subtitle {
     font-size: 0.8rem;
-    color: #64748b;
+    color: var(--text-light);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1615,7 +1628,7 @@ body.modal-open {
         top: 100%;
         left: 0;
         width: 100%;
-        background: white;
+        background: var(--white);
         flex-direction: column;
         padding: 2rem;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
