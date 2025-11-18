@@ -60,10 +60,12 @@ function setRating(rating) {
 
 function openReviewForm() {
     document.getElementById('reviewModal').style.display = 'block';
+    document.body.classList.add('modal-open');
 }
 
 function closeReviewForm() {
     document.getElementById('reviewModal').style.display = 'none';
+    document.body.classList.remove('modal-open');
     document.getElementById('reviewForm').reset();
     currentRating = 0;
     document.querySelectorAll('.star-rating .star').forEach(star => {
@@ -188,4 +190,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         sessionStorage.removeItem('selectedPackage');
     }
+});
+
+// Past Projects Image Handling
+document.addEventListener('DOMContentLoaded', function() {
+    // Add loading state to project images
+    const projectImages = document.querySelectorAll('.screenshot-image');
+    
+    projectImages.forEach(img => {
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        
+        img.addEventListener('error', function() {
+            // If image fails to load, the onerror attribute in HTML will handle it
+            console.log('Image failed to load:', this.src);
+        });
+    });
 });
