@@ -705,6 +705,92 @@ body.modal-open {
     box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
 }
 
+/* NEW: Past Projects Section */
+.past-projects {
+    padding: 100px 0;
+    background: #f8fafc;
+}
+
+.past-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.project-screenshot {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.project-screenshot:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.screenshot-container {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.screenshot-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-screenshot:hover .screenshot-image {
+    transform: scale(1.05);
+}
+
+.screenshot-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.project-screenshot:hover .screenshot-overlay {
+    transform: translateY(0);
+}
+
+.screenshot-overlay h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.screenshot-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.view-details {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.view-details:hover {
+    background: rgba(255,255,255,0.3);
+}
+
 /* About Section */
 .about {
     padding: 120px 0;
@@ -1435,7 +1521,7 @@ body.modal-open {
         font-size: 2rem;
     }
     
-    .services, .portfolio, .about, .contact {
+    .services, .portfolio, .about, .contact, .past-projects {
         padding: 80px 0;
     }
     
@@ -1529,6 +1615,16 @@ body.modal-open {
     .footer-links {
         justify-content: center;
     }
+    
+    /* Past Projects Responsive */
+    .past-projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .screenshot-container {
+        height: 200px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1563,6 +1659,23 @@ body.modal-open {
     
     .highlight-item {
         padding: 0.8rem;
+    }
+    
+    /* Past Projects Mobile */
+    .past-projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .screenshot-container {
+        height: 180px;
+    }
+    
+    .screenshot-overlay {
+        padding: 1.5rem 1rem 1rem;
+    }
+    
+    .screenshot-overlay h4 {
+        font-size: 1.1rem;
     }
 }
 /* Logo Styling */
