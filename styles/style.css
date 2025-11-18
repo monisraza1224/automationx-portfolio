@@ -25,52 +25,6 @@ body {
     --white: #ffffff;
 }
 
-/* Enhanced Logo Styling */
-.logo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-}
-
-.logo h2 {
-    color: var(--primary-color);
-    font-weight: 800;
-    font-size: 1.6rem;
-    margin: 0;
-    line-height: 1;
-    letter-spacing: -0.5px;
-}
-
-.logo-subtitle {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Footer Logo Styling */
-.footer-brand h3 {
-    color: var(--white);
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.footer-brand p {
-    color: #cbd5e1;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
 /* Navigation */
 #navbar {
     background: var(--white);
@@ -86,55 +40,126 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 2rem;
+    padding: 0.8rem 2rem;
+    position: relative;
 }
 
-/* Updated Navigation Logo */
+/* Expanded Rectangular Logo - Larger Version */
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 320px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, rgba(80, 200, 120, 0.12) 0%, rgba(61, 175, 108, 0.06) 100%);
+    border-radius: 15px;
+    border: 1.5px solid rgba(80, 200, 120, 0.25);
+    margin-right: auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(80, 200, 120, 0.1);
+}
+
+.logo:hover {
+    background: linear-gradient(135deg, rgba(80, 200, 120, 0.18) 0%, rgba(61, 175, 108, 0.12) 100%);
+    border-color: rgba(80, 200, 120, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(80, 200, 120, 0.15);
+}
+
+.logo-image {
+    height: 60px;
+    width: auto;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.logo:hover .logo-image {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.logo-text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex-grow: 1;
 }
 
-.logo h2 {
+.logo-text h2 {
     color: var(--primary-color);
-    font-weight: 700;
-    font-size: 1.5rem;
+    font-weight: 800;
+    font-size: 1.8rem;
     margin: 0;
     line-height: 1;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .logo-subtitle {
     font-size: 0.8rem;
     color: var(--text-light);
-    font-weight: 500;
-    margin-top: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 3px;
+    white-space: nowrap;
 }
 
+/* Navigation Links */
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2.5rem;
+    margin-left: 2.5rem;
+    align-items: center;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-dark);
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s ease;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    padding: 10px 0;
+    position: relative;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary-gradient);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 5px;
+    padding: 10px;
+    margin-left: 1.5rem;
+    background: rgba(80, 200, 120, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    background: rgba(80, 200, 120, 0.2);
 }
 
 .hamburger span {
@@ -382,6 +407,13 @@ body.modal-open {
     height: 4px;
     background: var(--primary-gradient);
     border-radius: 2px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Services Section */
@@ -1564,50 +1596,6 @@ body.modal-open {
     box-shadow: 0 10px 25px rgba(80, 200, 120, 0.4);
 } 
 
-/* Logo Styling */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo-image {
-    height: 100px;
-    width: auto;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    border-radius: 16px;
-    transition: all 0.3s ease;
-}
-
-.logo-image:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.logo-text h2 {
-    color: var(--primary-color);
-    font-weight: 800;
-    font-size: 1.8rem;
-    margin: 0;
-    line-height: 1;
-    letter-spacing: -0.5px;
-}
-
-.logo-subtitle {
-    font-size: 0.8rem;
-    color: var(--text-light);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 3px;
-}
-
 /* Responsive Design */
 @media (max-width: 1024px) {
     .services-grid {
@@ -1622,6 +1610,28 @@ body.modal-open {
 }
 
 @media (max-width: 768px) {
+    .nav-container {
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .logo {
+        min-width: 250px;
+        padding: 8px 15px;
+        gap: 12px;
+    }
+    
+    .logo-image {
+        height: 45px;
+    }
+    
+    .logo-text h2 {
+        font-size: 1.4rem;
+    }
+    
+    .logo-subtitle {
+        font-size: 0.7rem;
+    }
+    
     .nav-links {
         display: none;
         position: absolute;
@@ -1633,6 +1643,7 @@ body.modal-open {
         padding: 2rem;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         gap: 1.5rem;
+        margin-left: 0;
     }
     
     .nav-links.active {
@@ -1868,12 +1879,18 @@ body.modal-open {
         grid-template-columns: 1fr;
     }
     
+    .logo {
+        min-width: 200px;
+        padding: 6px 12px;
+        gap: 10px;
+    }
+    
     .logo-image {
-        height: 80px;
+        height: 40px;
     }
     
     .logo-text h2 {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
     
     .logo-subtitle {
