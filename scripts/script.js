@@ -28,21 +28,21 @@ const demoReviews = [
         company: "pepeurope.net",
         rating: 5,
         review: "I was struggling a lot in growing my business due to my busy routine but AutomationX helped me a lot to manage my patients through Chatagent on my website and my ads automation system with emails auto replies system",
-        date: "11/12/2025"
+        date: "11/12/2024"
     },
     {
         name: "Sarah Johnson",
         company: "TechSolutions Inc",
         rating: 5,
         review: "Amazing service! My business efficiency increased by 40% after implementing their automation systems. The team is incredibly responsive and professional.",
-        date: "10/28/2025"
+        date: "10/28/2024"
     },
     {
         name: "Mike Chen",
         company: "RetailPro",
         rating: 4,
         review: "Great support and quick implementation. The chatbot has reduced our customer response time from hours to minutes. Highly recommended!",
-        date: "10/15/2025"
+        date: "10/15/2024"
     }
 ];
 
