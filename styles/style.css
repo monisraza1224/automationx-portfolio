@@ -1880,3 +1880,12 @@ body.modal-open {
         display: none;
     }
 }
+/* Ensure Font Awesome phone-alt icon is properly sized */
+.fa-phone-alt {
+    font-size: inherit;
+}
+
+/* Adjust service icon for phone if needed */
+.service-icon .fa-phone-alt {
+    font-size: 2.2rem;
+}
