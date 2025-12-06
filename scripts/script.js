@@ -18,16 +18,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Tab functionality for Expertise section
+function initExpertiseTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    if (tabBtns.length > 0) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and panes
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabPanes.forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding pane
+                const tabId = btn.getAttribute('data-tab');
+                const tabPane = document.getElementById(tabId);
+                if (tabPane) {
+                    tabPane.classList.add('active');
+                }
+            });
+        });
+    }
+}
+
 // Review System - WITH DEMO REVIEWS FOR ALL VISITORS
 let currentRating = 0;
 
 // DEMO REVIEWS - These will show for EVERY visitor
 const demoReviews = [
     {
+        name: "Nathan Baxter",
+        company: "Everse Travel Tech",
+        rating: 5,
+        review: "I am working With this young man since he started doing automations and he has helped me a lot to grow my sale effectively and I have made a good from the saas project Monis developed for me",
+        date: "11/13/2025"
+    },
+    {
         name: "Martin",
         company: "pepeurope.net",
         rating: 5,
-        review: "I was struggling a lot in growing my business due to my busy routine but AutomationX helped me a lot to manage my patients through Chatagent on my website and my ads automation system with emails auto replies system",
+        review: "I was struggling a lot in growing my business due to my busy routine but AutomationX helped me a lot to manage my patients by through Chatagent on my website and my ads automation system with emails auto replies system",
         date: "11/12/2024"
     },
     {
@@ -40,7 +73,7 @@ const demoReviews = [
     {
         name: "Mike Chen",
         company: "RetailPro",
-        rating: 4,
+        rating: 5,
         review: "Great support and quick implementation. The chatbot has reduced our customer response time from hours to minutes. Highly recommended!",
         date: "10/15/2024"
     }
@@ -290,7 +323,7 @@ function showAllReviews() {
     }
     
     if (reviews.length === 0) {
-        reviewsList.innerHTML = '<p>No reviews yet. Be the first to share your experience!</p>';
+        reviewsList.innerHTML = '<p class="no-reviews">No reviews yet. Be the first to share your experience!</p>';
         return;
     }
     
@@ -304,7 +337,7 @@ function showAllReviews() {
                     <h4>${review.name}</h4>
                     <p>${review.company} • ${review.date}</p>
                 </div>
-                <div class="star-rating" style="color: #ffd700; font-size: 18px;">
+                <div class="star-rating" style="color: #fbbf24; font-size: 18px;">
                     ${stars}
                 </div>
             </div>
@@ -442,33 +475,38 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Show reviews when page loads
-document.addEventListener('DOMContentLoaded', showAllReviews);
-
-// Package selection (if you have this feature)
+// Package selection
 function selectPackage(packageName) {
     sessionStorage.setItem('selectedPackage', packageName);
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 }
 
 // Initialize contact form with package selection
-document.addEventListener('DOMContentLoaded', function() {
-    showAllReviews();
-    
-    // Pre-fill package if selected
+function initPackageSelection() {
     const selectedPackage = sessionStorage.getItem('selectedPackage');
     if (selectedPackage) {
+        const serviceSelect = document.getElementById('service');
+        if (serviceSelect) {
+            // Try to find matching option
+            for (let option of serviceSelect.options) {
+                if (option.text.includes(selectedPackage)) {
+                    option.selected = true;
+                    break;
+                }
+            }
+        }
+        
         const messageTextarea = document.querySelector('#message');
         if (messageTextarea) {
-            messageTextarea.value = `I'm interested in the ${selectedPackage} package.`;
+            const currentText = messageTextarea.value;
+            messageTextarea.value = currentText + `\n\nI'm interested in the ${selectedPackage} package.`;
         }
         sessionStorage.removeItem('selectedPackage');
     }
-});
+}
 
 // Past Projects Image Handling
-document.addEventListener('DOMContentLoaded', function() {
-    // Add loading state to project images
+function initProjectImages() {
     const projectImages = document.querySelectorAll('.screenshot-image');
     
     projectImages.forEach(img => {
@@ -477,43 +515,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         img.addEventListener('error', function() {
-            // If image fails to load, the onerror attribute in HTML will handle it
             console.log('Image failed to load:', this.src);
         });
     });
-});
+}
 
 // Navbar background on scroll
-window.addEventListener('scroll', function() {
+function initNavbarScroll() {
     const navbar = document.getElementById('navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    } else {
-        navbar.style.background = '#fff';
-        navbar.style.backdropFilter = 'blur(10px)';
-    }
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            const offsetTop = targetSection.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-            
-            // Close mobile menu if open
-            navLinks.classList.remove('active');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.backdropFilter = 'blur(10px)';
+        } else {
+            navbar.style.background = '#fff';
+            navbar.style.backdropFilter = 'blur(10px)';
         }
     });
-});
+}
+
+// Smooth scrolling for navigation links
+function initSmoothScrolling() {
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+}
 
 // Add loading animation for images
 function preloadImages() {
@@ -527,31 +569,11 @@ function preloadImages() {
     });
 }
 
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    preloadImages();
-    showAllReviews();
+// Stats counter animation
+function initStatsCounter() {
+    const statsGrid = document.querySelector('.stats-grid');
+    if (!statsGrid) return;
     
-    // Add animation to stats counter (optional enhancement)
-    const animateStats = () => {
-        const stats = document.querySelectorAll('.stat-number');
-        stats.forEach(stat => {
-            const target = parseInt(stat.textContent);
-            let current = 0;
-            const increment = target / 50;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    stat.textContent = target + (stat.textContent.includes('+') ? '+' : '');
-                    clearInterval(timer);
-                } else {
-                    stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
-                }
-            }, 30);
-        });
-    };
-
-    // Trigger stats animation when they come into view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -559,10 +581,55 @@ document.addEventListener('DOMContentLoaded', function() {
                 observer.unobserve(entry.target);
             }
         });
-    });
+    }, { threshold: 0.5 });
 
-    const statsGrid = document.querySelector('.stats-grid');
-    if (statsGrid) {
-        observer.observe(statsGrid);
-    }
+    observer.observe(statsGrid);
+}
+
+function animateStats() {
+    const stats = document.querySelectorAll('.stat-number');
+    stats.forEach(stat => {
+        const originalText = stat.textContent;
+        const isPercentage = originalText.includes('%');
+        const isPlus = originalText.includes('+');
+        const target = parseInt(originalText.replace(/[^0-9]/g, ''));
+        
+        let current = 0;
+        const increment = target / 30; // Faster animation
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                stat.textContent = target + (isPercentage ? '%' : '') + (isPlus ? '+' : '');
+                clearInterval(timer);
+            } else {
+                const displayValue = Math.floor(current);
+                stat.textContent = displayValue + (isPercentage ? '%' : '') + (isPlus ? '+' : '');
+            }
+        }, 30);
+    });
+}
+
+// Initialize everything when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    preloadImages();
+    showAllReviews();
+    initExpertiseTabs();
+    initPackageSelection();
+    initProjectImages();
+    initNavbarScroll();
+    initSmoothScrolling();
+    initStatsCounter();
+    
+    // Add some console branding
+    console.log('%c🚀 AutomationX - AI Automation Solutions', 'color: #50C878; font-size: 16px; font-weight: bold;');
+    console.log('%cGDPR-compliant automation for European businesses', 'color: #64748b;');
 });
+
+// Make functions available globally
+window.selectPackage = selectPackage;
+window.openReviewForm = openReviewForm;
+window.closeReviewForm = closeReviewForm;
+window.setRating = setRating;
+window.openProjectModal = openProjectModal;
+window.closeProjectModal = closeProjectModal;
+window.showAllReviews = showAllReviews;
