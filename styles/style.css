@@ -2406,3 +2406,100 @@ html, body {
 input, select, textarea {
     font-size: 16px; /* Prevents iOS zoom on focus */
 }
+/* ========== MOBILE EMERGENCY FIXES ========== */
+
+/* Force single column on mobile */
+@media (max-width: 768px) {
+    /* Fix navigation immediately */
+    .nav-links {
+        display: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 80% !important;
+        height: 100vh !important;
+        background: white !important;
+        flex-direction: column !important;
+        padding: 80px 20px !important;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.1) !important;
+        z-index: 999 !important;
+    }
+    
+    .nav-links.active {
+        display: flex !important;
+        right: 0 !important;
+    }
+    
+    .hamburger {
+        display: flex !important;
+    }
+    
+    /* Force all grids to single column */
+    .services-grid,
+    .packages-grid,
+    .reasons-grid,
+    .portfolio-grid,
+    .past-projects-grid,
+    .tools-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Fix hero section */
+    .hero-content h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .hero-content p {
+        font-size: 1rem !important;
+    }
+    
+    /* Fix buttons */
+    .cta-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    /* Fix section titles */
+    .section-title {
+        font-size: 1.6rem !important;
+        padding-top: 70px !important;
+    }
+    
+    /* Fix containers */
+    .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    /* Prevent overflow */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
+    * {
+        max-width: 100% !important;
+    }
+}
+
+/* Small mobile fixes */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.4rem !important;
+    }
+    
+    .logo-image {
+        height: 50px !important;
+    }
+}
