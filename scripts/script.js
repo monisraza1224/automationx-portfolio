@@ -1,19 +1,58 @@
-// Mobile navigation
+// Mobile navigation - IMPROVED VERSION
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const body = document.body;
 
-hamburger.addEventListener('click', () => {
+// Create overlay element for mobile menu
+const navOverlay = document.createElement('div');
+navOverlay.className = 'nav-overlay';
+document.body.appendChild(navOverlay);
+
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
     navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    body.classList.toggle('menu-open');
 });
 
-// Smooth scrolling
+// Close menu when clicking overlay
+navOverlay.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+    navOverlay.classList.remove('active');
+    body.classList.remove('menu-open');
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        navOverlay.classList.remove('active');
+        body.classList.remove('menu-open');
+    });
+});
+
+// Smooth scrolling with offset for fixed header
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            navLinks.classList.remove('active');
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            if (window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                navOverlay.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
         }
     });
 });
